@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEAN Dashboard</title>
+    <link rel="stylesheet" href="dashboardstyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <div class="dashboard-container">
+        <h1>Dashboard</h1>
+        <div id="clock" class="clock"></div>
+
+        <div class="theme-toggle">
+            <input type="checkbox" id="theme-switch">
+            <label class="toggle-label" for="theme-switch">
+                <div class="toggle-ball"></div>
+            </label>
+        </div>     
+
+        <!-- Profile Section -->
+        <div class="profile">
+            <img class="profile-picture" src="profile-pic.jpg" alt="Profile Picture">
+            <div class="user-name">Cezar Gahi</div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="about.html" class="nav-link about">About</a>
+            <a href="contactus.html" class="nav-link contact">Contact Us</a>
+            <a href="index.html" class="nav-link logout">Logout</a>
+        </div>
+
+        <!-- Income Section -->
+        <div id="income-section" class="flex-row">
+            <div id="input-section">
+                <label for="input-balance">Balance:</label>
+                <input type="number" id="input-balance" placeholder="Enter your balance">
+                <span class="error-message" id="balance-error">Please enter a valid balance.</span>
+                <label for="input-salary">Salary:</label>
+                <input type="number" id="input-salary" placeholder="Enter your salary">
+                <span class="error-message" id="salary-error">Please enter a valid salary.</span>
+                <button id="set-income-btn" class="button">Set</button>
+            </div>
+
+            <div id="balance-section" style="display: none;">
+                <p>Balance: <span id="balance">0</span></p>
+                <p>Salary: <span id="salary">0</span></p>
+                <button id="edit-income-btn" class="button">Edit</button>
+            </div>
+        </div>
+
+        <!-- Add Expense Section -->
+        <div>
+            <h2>Create your Expense</h2>
+            <div class="expense-inputs">
+                <label for="description">Description:</label>
+                <input type="text" id="description" placeholder="Expense description">
+                <span class="error-message" id="description-error">Please enter a valid description.</span>
+                <label for="expense-amount">Amount:</label>
+                <input type="number" id="expense-amount" placeholder="Expense amount">
+                <span class="error-message" id="amount-error">Please enter a valid amount.</span>
+                <button id="add-expense-btn" class="button">Add</button>
+            </div>
+
+            <!-- Expenses Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Date Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-list">
+                    <!-- Dynamic content will be added here -->
+                </tbody>
+            </table>
+
+            <!-- Total Expense Section -->
+        <div id="total-expense-section" style="display: none;">
+            <h3>Total Expense: <span id="total-expense">₱0.00</span></h3>
+        </div>
+
+            <div class="view-history">
+                <a href="history.html" class="link">View History</a>
+            </div>
+        </div>
+
+        <!-- Notification Modal -->
+        <div id="notification" class="notification" style="display: none;">
+            <div class="notification-content">
+                <p id="notification-message"></p>
+                <button id="yes-btn" class="button">Yes</button>
+                <button id="no-btn" class="button">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Banners -->
+    <div id="paid-notification" class="notification-banner" style="display: none;">Paid Notification</div>
+    <div id="delete-notification" class="notification-banner" style="display: none;">Delete Notification</div>
+
+    <script src="dashboardjava.js"></script>
+</body>
+</html>
